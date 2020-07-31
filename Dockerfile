@@ -10,7 +10,7 @@ USER root
 # Friendly reminder that generated container images are from an open source
 # project, and not a formal CrowdStrike product.
 #
-LABEL maintainer="https://github.com/CrowdStrike/openshift-falcon-daemonset"
+LABEL maintainer="https://github.com/CrowdStrike/dockerfiles/"
 
 #
 # Apply updates to base image.
@@ -42,9 +42,9 @@ ARG VCS_REF                 # VCS_REF=$(git rev-parse --short HEAD)
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.schema-version "1.0"
 LABEL org.label-schema.description "CrowdStrike Falcon Linux Sensor"
-LABEL org.label-schema.vendor "https://github.com/CrowdStrike/openshift-falcon-daemonset"
-LABEL org.label-schema.url="https://github.com/CrowdStrike/openshift-falcon-daemonset"
-LABEL org.label-schema.vcs-url="https://github.com/CrowdStrike/openshift-falcon-daemonset"
+LABEL org.label-schema.vendor "https://github.com/CrowdStrike/dockerfiles/"
+LABEL org.label-schema.url="https://github.com/CrowdStrike/dockerfiles/"
+LABEL org.label-schema.vcs-url="https://github.com/CrowdStrike/dockerfiles/"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.docker.cmd \
     "docker run -d --privileged -v /var/log:/var/log \

@@ -74,7 +74,7 @@ FALCONCTL_OPT_MEMFAIL_EVERY_N
 The sensor can be run as a background service as follows:
 
 ```shell
-CONTAINER_ID=$(docker run -d \
+$ CONTAINER_ID=$(docker run -d \
 -e FALCONCTL_OPT_CID=<<your CID>> \
 -e FALCONCTL_OPT_TRACE=debug \
 --privileged --net=host \
@@ -87,8 +87,11 @@ Replace ``<<your CID>>`` with your CrowdStrike Customer ID (CID). This can be fo
 `falconctl` can be invoked inside a running sensor container with `docker exec`:
 
 ```shell
-docker exec -it $CONTAINER_ID falconctl -g --trace
+$ docker exec -it $CONTAINER_ID falconctl -g --trace
 ```
 
 ## Post-build Actions
 Push the image to a registry (like ECR) if the container needs to be accessed outside of the build host.
+
+## Many Thanks
+Thank you to [Dinesh Subhraveti](https://www.linkedin.com/in/subhraveti/) whose initial code inspired this repo!
