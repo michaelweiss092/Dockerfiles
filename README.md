@@ -30,9 +30,9 @@ a drop-in replacement for development on Linux hosts, but has not yet been teste
 Build the container using the [included Dockerfile](https://github.com/CrowdStrike/dockerfiles/blob/master/Dockerfile) through a command such as:
 
 ```shell
-$ docker build --no-cache=true --build-arg \
-BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
-VCS_REF=$(git rev-parse --short HEAD) \
+$ docker build --no-cache=true \
+--build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+--build-arg VCS_REF=$(git rev-parse --short HEAD) \
 -t falcon-sensor:latest .
 ```
 
