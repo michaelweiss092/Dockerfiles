@@ -36,8 +36,13 @@ RUN ln -s /usr/local/bin/entrypoint.sh /
 
 
 ARG container_version
-ARG BUILD_DATE              # BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-ARG VCS_REF                 # VCS_REF=$(git rev-parse --short HEAD)
+
+# BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+ARG BUILD_DATE
+
+# VCS_REF=$(git rev-parse --short HEAD)
+ARG VCS_REF
+
 
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.schema-version "1.0"
