@@ -1,0 +1,2 @@
+# Don't accidentally commit the sensor RPM into the repo ;)
+*.rpm
