@@ -13,7 +13,18 @@ a drop-in replacement for development on Linux hosts, but has not yet been teste
   CLOUDSIM_CID="YOURCID"
   ```
 
-  This could be replaced with a sed one-liner such as ``sed -i s/YOURCID/xyz/r entrypoint.sh``. Try not to commit your CID to your Git repo! 
+  This could be replaced with a sed one-liner such as ``sed -i 's/YOURCID/xyz/r' entrypoint.sh``. Try not to commit your CID to your Git repo! 
+
+* Download the RHEL/CentOS/Oracle 8 sensor from [https://falcon.crowdstrike.com/hosts/sensor-downloads](https://falcon.crowdstrike.com/hosts/sensor-downloads) and place into this directory. The ``Dockerfile`` references this file and copies it into the container during ``docker build``:
+
+  ```shell
+  COPY ./falcon-sensor-5.33.0-9808.el8.x86_64.rpm /tmp/falcon-agent.rpm
+
+  RUN yum -y install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos /tmp/falcon-agent.rpm && yum -y clean all && rm -rf /var/cache/yum && rm /tmp/falcon-agent.rpm 
+  ```
+
+  At some point we'll parameterize the RPM name.
+
 
 ## Build
 Build the container using the [included Dockerfile](https://github.com/CrowdStrike/dockerfiles/blob/master/Dockerfile) through a command such as:
